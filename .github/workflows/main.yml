@@ -1,0 +1,23 @@
+name: Avica
+
+on:
+  workflow_dispach:
+
+jobs:
+  build: 
+    name: Start Building...
+    rubs-on: windows-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Url
+"https://github.com/raposabrty/pcrdp/-/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Show Website
+        run: cmd /c show.bat
+
+     - name: Time Counter
+       run: /c loop.bat  
